@@ -29,7 +29,9 @@ void loop() {
     if (acumulador < 0) acumulador = 0;
   }
 
-  bool estaChovendo = (acumulador >= 10);
+  bool estaChovendo = estadoChuvaAnterior;
+  if (acumulador >= 10) estaChovendo = true; 
+  else if (acumulador == 0) estaChovendo = false;
   
   if (estaChovendo != estadoChuvaAnterior) {
     if (estaChovendo) {
